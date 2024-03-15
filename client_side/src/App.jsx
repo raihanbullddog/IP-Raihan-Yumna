@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import FetchSource from './newsSource.jsx'
-import FetchNewsAll from './allNews.jsx'
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routers.jsx";
+import { store } from "./app/store.js";
+import { Provider } from "react-redux";
 
 function App() {
-  
-
   return (
-    <FetchNewsAll/>
-  )
+    <>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>   
+    </>
+  );
 }
 
-export default App
+export default App;

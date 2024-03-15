@@ -1,0 +1,13 @@
+{
+    "Transactions": [
+        {
+            "id" : 9,
+            "UserId" : 1,
+            "transaction_id" : "TRX-UACC-warg48-20231214",
+            "payment_gateway_id" : "cs_test_a1D5XBtqYiqRb9GU6IXfzFr1L1BQwaagdllSqW35Oz4vAqDFpCUKG4k4UR",
+            "status" : "paid",
+            "createdAt" : "2023-12-14T08:36:42.359Z",
+            "updatedAt" : "2023-12-14T08:38:07.479Z"
+        }
+    ]}
+    
