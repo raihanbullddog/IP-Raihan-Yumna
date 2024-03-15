@@ -1,0 +1,21 @@
+[
+    {
+      "username": "Nell",
+      "email": "nellfoster@dymi.com",
+      "password": "12345",
+      "status": "Free"
+    },
+    {
+      "username": "John",
+      "email": "johnK@dymi.com",
+      "password": "12345",
+      "status": "Free"
+    },
+    {
+      "username": "Shin",
+      "email": "shin@dymi.com",
+      "password": "12345",
+      "status": "Premium"
+    }
+  ]
+  
