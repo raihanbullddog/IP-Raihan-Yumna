@@ -35,7 +35,7 @@ module.exports = class GlobalController {
       // console.log(findUser.Transactions[0], "ENIH");
 
       if (findUser.status === "Premium")
-        throw { name: "isPremium", message: "your tier is already Premium" }; //GANTI KE ALERT UDAH PREMIUM, GABAKAL SIH
+        throw { name: "isPremium", message: "your tier is already Premium" };
 
       if (findUser.Transactions.length > 0) {
         const checkSession = await stripe.checkout.sessions.retrieve(
@@ -53,13 +53,13 @@ module.exports = class GlobalController {
           await findUser.Transactions[0].update({ status: "paid" });
           res.status(200).json({
             message: "Payment successful, redirecting to your page",
-            url: "https://individual-project-c3c85.web.app/", //masukin link deploy client nya
+            url: "https://clientraihan.web.app",
           });
         }
       } else {
         const session = await stripe.checkout.sessions.create({
-          success_url: "https://individual-project-c3c85.web.app/success", //balikkan ke url client atau endpoint mengakses home
-          cancel_url: "https://individual-project-c3c85.web.app/fail", //balikkan ke url client atau endpoint mengakses home
+          success_url: "https://clientraihan.web.app/success",
+          cancel_url: "https://clientraihan.web.app/fail",
           line_items: [
             {
               price_data: {
@@ -86,7 +86,7 @@ module.exports = class GlobalController {
         });
 
         // res.status(200).json({ session });
-        res.status(200).json({ url: session.url }); //YANG DI RETURN CUKUP URL AJA, NANTI LANGSUNG DI PAKSA CLIENT KE URL PAKE WINDOW
+        res.status(200).json({ url: session.url });
       }
     } catch (error) {
         next(error)
@@ -106,7 +106,7 @@ module.exports = class GlobalController {
         };
 
       if (findUser.status === "Premium")
-        throw { name: "isPremium", message: "your tier is already Premium" }; //GANTI KE ALERT UDAH PREMIUM
+        throw { name: "isPremium", message: "your tier is already Premium" };
 
       if (findUser.Transactions[0].status === "unpaid") {
         const checkSession = await stripe.checkout.sessions.retrieve(
