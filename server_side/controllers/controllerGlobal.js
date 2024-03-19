@@ -5,8 +5,18 @@ module.exports = class GlobalController {
   static async registerUser(req, res, next) {
     try {
       const data = req.body;
-      let instance = await User.registerUser(data);
-      res.status(200).json(instance);
+      const { username, email, password } = data;
+        let createUser = await User.create({
+          username,
+          email,
+          password,
+        });
+        let newUser = {
+          id: createUser.id,
+          username: createUser.username,
+          email: createUser.email,
+        };
+      res.status(200).json(newUser);
     } catch (error) {
       next(error);
     }

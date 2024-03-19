@@ -15,7 +15,7 @@ export default function DetailAnimePage() {
   let [anime, setAnime] = useState([]);
   let fetchDetailAnime = async () => {
     try {
-      let response = await Axios.get(`/animes/${id}`, {
+      let response = await Axios.get(`http://localhost:3000/animes/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },

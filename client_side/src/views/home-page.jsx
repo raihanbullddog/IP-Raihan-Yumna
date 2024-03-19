@@ -44,7 +44,7 @@ export default function HomePage() {
   const fetchDataAnimes = async () => {
     try {
       const { page, status, order_by, sort } = reqParams;
-      let { data } = await Axios.get("animes/", {
+      let { data } = await Axios.get("http://localhost:3000/animes/", {
         params: { page, status, order_by, sort },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -93,7 +93,7 @@ export default function HomePage() {
     try {
       // console.log(rating,">>>>>>>>>>>>>>>>")
       let { data } = await Axios({
-        url: `myanime/addfav/${rating}`,
+        url: `http://localhost:3000/myanime/addfav/${rating}`,
         method: "post",
         data: {},
         headers: {
@@ -121,7 +121,7 @@ export default function HomePage() {
     try {
       const nextPage = pagination.current_page + 1;
       const { status, order_by, sort } = reqParams;
-      const { data } = await Axios.get("animes/", {
+      const { data } = await Axios.get("http://localhost:3000/animes/", {
         params: { page: nextPage, status, order_by, sort },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,

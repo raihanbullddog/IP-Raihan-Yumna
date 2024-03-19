@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Axios from "../helpers/axios";
+import axios from "../helpers/axios";
 import { errorHandler } from "../helpers/errorHandler";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -28,7 +28,7 @@ export default function LoginPage() {
   async function handleLogin(event) {
     event.preventDefault();
     try {
-      const { data } = await Axios.post("/login", form);
+      const { data } = await axios.post("http://localhost:3000/login", form);
       localStorage.setItem("access_token", data.access_token);
 
       toast.success(`Login succeeded!`, {
@@ -49,7 +49,7 @@ export default function LoginPage() {
     // console.log("Encoded JWT ID token: " + response.credential);
     try {
       const { data } = await Axios.post(
-        "/login/google",
+        "http://localhost:3000/login/google",
         {},
         {
           headers: {
