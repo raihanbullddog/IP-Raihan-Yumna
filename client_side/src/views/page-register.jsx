@@ -48,7 +48,7 @@ export default function RegisterPage() {
   const handleAddUser = async (event) => {
     event.preventDefault();
     try {
-      let data = await Axios.post("/register", input, {});
+      let data = await Axios.post("http://localhost:3000/register", input, {});
       doneAdd(data);
     } catch (error) {
       errorHandler(error);

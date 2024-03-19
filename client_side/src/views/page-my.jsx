@@ -26,7 +26,7 @@ export default function MyPage() {
   const fetchDataMyAnime = async () => {
     try {
       const { page, pageSize } = params;
-      let { data } = await Axios.get("myAnime/", {
+      let { data } = await Axios.get("http://localhost:3000/myAnime/", {
         params: { page, pageSize },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,

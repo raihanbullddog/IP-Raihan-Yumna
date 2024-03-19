@@ -30,7 +30,7 @@ export default function MyEditPage() {
 
   let fetchUserData = async () => {
     try {
-      let response = await Axios.get(`/user/findUser`, {
+      let response = await Axios.get(`http://localhost:3000/user/findUser`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -64,7 +64,7 @@ export default function MyEditPage() {
   const handleEditProfile = async (event) => {
     event.preventDefault();
     try {
-      let { data } = await Axios.put(`/user/editUser`, input, {
+      let { data } = await Axios.put(`http://localhost:3000/user/editUser`, input, {
         headers: { Authorization: `Bearer ${token}` },
       });
       closePage(data);
